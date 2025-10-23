@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Ergotherapie Mobil in Bolheim & Heidenheim ➤ Mobile ergotherapeutische Behandlung ✓ Hausbesuche ✓ Neurologie ✓ Pädiatrie ✓ Orthopädie ✓ Jetzt Termin vereinbaren!">
+  <meta name="keywords" content="Ergotherapie Bolheim, Ergotherapie Heidenheim, Mobile Ergotherapie, Ergotherapie Hausbesuch, Ergotherapeut Bolheim, Ergotherapeut Heidenheim, Herbrechtingen, Ergotherapie Neurologie, Ergotherapie Pädiatrie, Ergotherapie Orthopädie, Ergotherapie Geriatrie">
+  <meta name="author" content="Ergotherapie Mobil">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="DE-BW">
+  <meta name="geo.placename" content="Bolheim, Heidenheim">
+  <meta name="geo.position" content="48.6305;10.1509">
+  <meta name="ICBM" content="48.6305, 10.1509">
+  
+  <title>Ergotherapie Bolheim & Heidenheim | Mobile Ergotherapie mit Hausbesuch ✓</title>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ergomobil-hdh.de/">
+  <meta property="og:title" content="ergomobil-hdh.de | Ergotherapie Bolheim & Heidenheim">
+  <meta property="og:description" content="Mobile ergotherapeutische Behandlung in Bolheim & Heidenheim. Ich komme zu Ihnen nach Hause. Jetzt Termin vereinbaren!">
+  <meta property="og:image" content="https://ergomobil-hdh.de/images/logo.png">
+  <meta property="og:locale" content="de_DE">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ergomobil-hdh.de | Ergotherapie Bolheim & Heidenheim">
+  <meta name="twitter:description" content="Mobile ergotherapeutische Behandlung mit Hausbesuch in Bolheim & Heidenheim">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ergomobil-hdh.de/">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="./style.css" as="style">
+  <link rel="preload" href="./images/ergo2.webp" as="image">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+
+  <!-- AOS (scroll animations) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- GLightbox (gallery) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    /* Mobile Optimierungen & Alignment Fix */
+    @media (max-width: 820px){
+      .section h2,
+      .section .section-intro{
+        text-align:center;
+      }
+      .services-slideshow.card.modern-slideshow{
+        padding:16px 18px 70px;
+      }
+      .services-slideshow .ms-prev{left:8px}
+      .services-slideshow .ms-next{left:60px}
+      .services-slideshow .ms-toggle{right:10px}
+      .services-slide{padding:32px 12px 10px}
+      .services-slide h3{font-size:1.55rem}
+      .services-slide p{font-size:.95rem}
+    }
+
+    @media (max-width: 700px){
+      /* Kontakt-Bereich mittig & Luft reduzieren */
+      #kontakt .contact-grid{
+        text-align:center;
+      }
+      #kontakt .contact-info ul{
+        list-style:none;
+        padding:0;
+        margin:0 auto 18px;
+        text-align:center;
+      }
+      #kontakt .contact-info li{
+        justify-content:center;
+      }
+      #kontakt .contact-info a{
+        word-break:break-word;
+      }
+      #kontakt .contact-form{
+        margin-top:8px;
+      }
+    }
+
+    @media (max-width: 600px){
+      .hero-content p{
+        font-size:1rem;
+        padding:0 4px;
+      }
+      .hero-actions{
+        flex-direction:column;
+        gap:14px;
+      }
+      .hero-actions .btn{
+        width:100%;
+        justify-content:center;
+      }
+      .hero-locations{
+        gap:10px;
+      }
+      .hero-locations .location-item{
+        padding:6px 14px;
+        font-size:.8rem;
+      }
+      /* Map Scaling */
+      .interactive-map-container{
+        border-radius:16px;
+      }
+      .enhanced-map{
+        height:360px;
+      }
+      .service-area-circle{
+        width:260px;
+        height:260px;
+      }
+      .center-marker{
+        width:58px;
+        height:58px;
+        font-size:1.15rem;
+      }
+      .location-marker{
+        width:34px;
+        height:34px;
+      }
+      .location-marker i{
+        font-size:.9rem;
+      }
+      .area-radius{
+        font-size:.65rem;
+        top:-22px;
+        padding:3px 10px;
+      }
+      .map-header,.map-footer{
+        padding:16px 18px;
+      }
+      .coverage-stats{
+        gap:14px;
+      }
+      .stat-item{
+        padding:12px 10px;
+      }
+      .stat-item i{
+        font-size:1.2rem;
+      }
+      /* Footer stacking spacing */
+      .footer-grid{
+        gap:22px;
+      }
+    }
+
+    @media (max-width:480px){
+      .services-slide .features{
+        gap:6px;
+        font-size:.85rem;
+      }
+      .services-slide .icon{
+        width:70px;
+        height:70px;
+        font-size:1.6rem;
+      }
+      .ms-dots .ms-dot{
+        width:12px;
+        height:12px;
+      }
+      .ms-nav,.ms-toggle{
+        width:40px !important;
+        height:40px !important;
+        top:10px !important;
+      }
+      .ms-next{left:54px !important}
+    }
+
+    /* Sicherstellen, dass UL im Haupt-Navi nie Marker zeigt */
+    nav.site-nav ul{list-style:none;margin:0;padding:0}
+    nav.site-nav li{list-style:none}
+
+    /* Defensive: Entfernt evtl. styling-konflikt durch Browser */
+    nav.site-nav li::marker{content:""}
+
+    /* ZENTRIERUNG CTA LEISTUNGEN */
+    .cta-block,
+    .leistungen-cta {
+      max-width: 960px;
+      margin: 50px auto 0;
+      text-align: center;
+      padding: 10px 20px 0;
+    }
+    .cta-block h2,
+    .leistungen-cta h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: .3px;
+      color: var(--primary-700);
+    }
+    .cta-block p,
+    .leistungen-cta p {
+      margin: 0 0 26px;
+      font-size: .95rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+    }
+    .cta-actions .btn {
+      min-width: 170px;
+      justify-content: center;
+      font-size: .9rem;
+      padding: 13px 20px;
+    }
+
+    /* Wenn der alte Block links steht (z.B. durch container ohne center), überschreiben: */
+    .leistungen-cta.container,
+    .cta-block.container {
+      display: block;
+    }
+
+    /* Mobile Feinschliff */
+    @media (max-width:600px){
+      .cta-block,
+      .leistungen-cta {margin-top:40px;padding:0 6px}
+      .cta-block p,
+      .leistungen-cta p {margin-bottom:22px}
+      .cta-actions {gap:10px}
+      .cta-actions .btn {width:100%}
+    }
+  </style>
+  
+  <!-- JSON-LD Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "@id": "https://ergomobil-hdh.de",
+    "name": "ergomobil-hdh.de",
+    "alternateName": "Ergotherapie Bolheim Heidenheim",
+    "description": "Mobile Ergotherapie mit Hausbesuchen in Bolheim und Heidenheim. Behandlungen in Neurologie, Pädiatrie, Orthopädie und Geriatrie.",
+    "url": "https://ergomobil-hdh.de",
+    "logo": "https://ergomobil-hdh.de/images/logo.png",
+    "image": "https://ergomobil-hdh.de/images/logo.png",
+    "telephone": "+4915234551137",
+    "email": "info@ergomobil-hdh.de",
+    "priceRange": "$$",
+    "paymentAccepted": "Rezept, Privatversichert",
+    "currenciesAccepted": "EUR",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Albstr. 5",
+      "addressLocality": "Herbrechtingen",
+      "addressRegion": "Baden-Württemberg",
+      "postalCode": "89542",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "48.6305",
+      "longitude": "10.1509"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Bolheim"
+      },
+      {
+        "@type": "City",
+        "name": "Heidenheim"
+      },
+      {
+        "@type": "City",
+        "name": "Herbrechtingen"
+      }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Ergotherapie Leistungen",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Neurologie",
+            "description": "Ergotherapeutische Behandlung nach Schlaganfall, Parkinson, MS"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Pädiatrie",
+            "description": "Ergotherapie für Kinder - Motorik, Konzentration, Wahrnehmung"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Orthopädie",
+            "description": "Behandlung bei Hand- und Armverletzungen, Rheuma"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Geriatrie",
+            "description": "Ergotherapie für Senioren - Selbstständigkeit im Alltag"
+          }
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/ergotherapie_mobil",
+      "https://www.facebook.com/ergotherapie_mobil"
+    ]
+  }
+  </script>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ergomobil-hdh.de/"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#start">Zum Inhalt springen</a>
+  
+  <!-- Google tag (gtag.js) - Add your Google Analytics ID here -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+
+  <header id="top" class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="ergomobil-hdh.de Startseite">
+        <img src="./images/logo.png" alt="ergomobil-hdh.de Logo">
+        <span>ergomobil-hdh.de</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Navigation umschalten" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" role="navigation">
+        <ul>
+          <li><a href="#start" class="active">Start</a></li>
+          <li><a href="index.html#leistungen">Leistungen</a></li>
+          <li><a href="index.html#main">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="start" class="hero" aria-label="Einstiegsbereich">
+    <div class="hero-gallery">
+      <div class="hero-gallery-item active" style="background-image: url('./images/ergo2.webp')"></div>
+      <div class="hero-gallery-item" data-bg="./images/ergo3.jpg"></div>
+      <div class="hero-gallery-item" data-bg="./images/ergo4.jpg"></div>
+      <div class="hero-gallery-item" data-bg="./images/ergo5.webp"></div>
+    </div>
+    <div class="container hero-content" data-aos="fade-up">
+      <h1>ergomobil-hdh.de</h1>
+      <p>Modern, mobil und menschlich: Ich komme zu Ihnen nach Hause – mit Herz, Kompetenz und einem Lächeln.</p>
+      
+      <!-- Einsatzgebiete in Hero -->
+      <div class="hero-locations">
+        <div class="location-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Bolheim</span>
+        </div>
+        <div class="location-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Heidenheim</span>
+        </div>
+        <div class="location-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Umgebung</span>
+        </div>
+      </div>
+      
+      <div class="hero-actions">
+        <a class="btn primary" href="kontakt.html"><i class="fa-solid fa-calendar-check"></i> Termin vereinbaren</a>
+        <a class="btn primary" href="https://wa.me/4915234551137?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20ergotherapeutische%20Behandlung." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp Anfrage</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- HIER EINFÜGEN -->
+  <main id="main" class="about-page" aria-label="Über uns">
+    <section class="page-hero">
+      <div class="container" data-aos="fade-up">
+        <h1><i class="fa-solid fa-user-doctor"></i> Fachliche Expertise – Mareike Nebel</h1>
+        <p class="hero-subtitle">Staatlich anerkannte Ergotherapeutin mit neurologischem Schwerpunkt</p>
+      </div>
+    </section>
+
+    <section class="about-content reveal">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image" data-aos="zoom-in">
+            <img src="./images/m.nebel.png" alt="Mareike Nebel - Ergotherapeutin" loading="lazy" />
+          </div>
+          <div class="about-text" data-aos="fade-left">
+            <h2><i class="fa-solid fa-user-heart"></i> Therapeutische Philosophie & Behandlungsansatz</h2>
+            <p>
+              Als <strong>staatlich anerkannte Ergotherapeutin</strong> mit neurologischem Schwerpunkt fokussiere ich mich auf die 
+              evidenzbasierte Rehabilitation funktioneller Defizite und die Optimierung der Aktivitäten des täglichen Lebens (ADL). 
+              Mein therapeutischer Ansatz basiert auf neuroplastischen Prinzipien und klientenzentrierten Behandlungskonzepten.
+            </p>
+            <p>
+              <strong>Primäre Behandlungsbereiche:</strong> Motorische und kognitive Rehabilitation nach zerebrovaskulären Insulten, 
+              neurodegenerativen Erkrankungen sowie traumatischen Hirnverletzungen. Durch systematische Befunderhebung und 
+              individualisierte Therapiepläne werden funktionelle Verbesserungen und eine erhöhte Partizipation im Alltag erreicht.
+            </p>
+            <p>
+              Die <strong>neurotherapeutische Intervention</strong> erfolgt nach aktuellen wissenschaftlichen Standards und 
+              berücksichtigt sowohl biomechanische als auch neurophysiologische Aspekte der Bewegungswiederherstellung.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- Leistungen section -->
+ <main class="leistungen-page">
+    <section class="page-hero">
+      <div class="container">
+        <h1><i class="fa-solid fa-house-medical"></i> Meine Leistungen</h1>
+        <p class="hero-subtitle">Evidenzbasierte, mobile Ergotherapie mit Fokus auf Selbstständigkeit, Sicherheit und Lebensqualität – direkt bei Ihnen vor Ort.</p>
+      </div>
+    </section>
+
+    <section id="leistungen" class="section">
+      <div class="container">
+        <h2><i class="fa-solid fa-stethoscope"></i> Spezialisierte Behandlungsbereiche</h2>
+        <p class="section-intro">Ich biete evidenzbasierte ergotherapeutische Behandlung in drei Hauptbereichen mit individuell angepassten Therapiekonzepten.</p>
+
+        <div class="services-grid">
+          <!-- Neurologie -->
+          <article class="service-card">
+            <div class="service-header">
+              <div class="icon"><i class="fa-solid fa-brain"></i></div>
+              <h3>Neurologie</h3>
+              <p class="service-subtitle">Rehabilitation nach neurologischen Erkrankungen</p>
+            </div>
+            <div class="service-content">
+              <p>Gezielte Förderung von Motorik, Kognition und Handlungskompetenz nach Schlaganfall, Parkinson, MS oder anderen neurologischen Ereignissen.</p>
+              
+              <h4><i class="fa-solid fa-target"></i> Behandlungsziele</h4>
+              <ul class="service-points">
+                <li>Wiederherstellung motorischer Funktionen</li>
+                <li>Verbesserung kognitiver Fähigkeiten</li>
+                <li>Alltagsrelevantes Funktionstraining</li>
+                <li>Kompensation & Neuroplastizität nutzen</li>
+              </ul>
+
+              <h4><i class="fa-solid fa-clipboard-list"></i> Therapiemethoden</h4>
+              <ul class="service-points">
+                <li>Bobath-Konzept für normale Bewegung</li>
+                <li>Perfetti-Methode zur Sensomotorik</li>
+                <li>Spiegeltherapie bei Lähmungen</li>
+                <li>Kognitives Training & Gedächtnisübungen</li>
+                <li>ADL-Training (Anziehen, Essen, Körperpflege)</li>
+              </ul>
+
+              <h4><i class="fa-solid fa-user-injured"></i> Indikationen</h4>
+              <div class="indications-grid">
+                <span class="indication-tag">Schlaganfall</span>
+                <span class="indication-tag">Parkinson</span>
+                <span class="indication-tag">Multiple Sklerose</span>
+                <span class="indication-tag">Schädel-Hirn-Trauma</span>
+                <span class="indication-tag">Polyneuropathie</span>
+                <span class="indication-tag">Demenz</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hand / Orthopädie -->
+          <article class="service-card">
+            <div class="service-header">
+              <div class="icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+              <h3>Hand / Orthopädie</h3>
+              <p class="service-subtitle">Funktionelle Rehabilitation der oberen Extremität</p>
+            </div>
+            <div class="service-content">
+              <p>Wiederherstellung von Beweglichkeit, Kraft, Koordination und gezielter Funktion im Alltag nach Verletzungen oder Operationen.</p>
+              
+              <h4><i class="fa-solid fa-target"></i> Behandlungsziele</h4>
+              <ul class="service-points">
+                <li>Schmerzreduktion und Beweglichkeit</li>
+                <li>Kraftaufbau und Koordination</li>
+                <li>Sensibilitätstraining</li>
+                <li>Funktionelle Alltagsbewegungen</li>
+              </ul>
+
+              <h4><i class="fa-solid fa-clipboard-list"></i> Therapiemethoden</h4>
+              <ul class="service-points">
+                <li>Manuelle Therapie & Mobilisation</li>
+                <li>Narben- & Weichteilbehandlung</li>
+                <li>Sensibilitätstraining nach Verletzungen</li>
+                <li>Krafttraining & Koordinationsübungen</li>
+                <li>Hilfsmittelberatung & -anpassung</li>
+              </ul>
+
+              <h4><i class="fa-solid fa-user-injured"></i> Indikationen</h4>
+              <div class="indications-grid">
+                <span class="indication-tag">Karpaltunnel-Syndrom</span>
+                <span class="indication-tag">Frakturen</span>
+                <span class="indication-tag">Sehnenrisse</span>
+                <span class="indication-tag">Arthrose</span>
+                <span class="indication-tag">Dupuytren</span>
+                <span class="indication-tag">CRPS</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Geriatrie -->
+          <article class="service-card">
+            <div class="service-header">
+              <div class="icon"><i class="fa-solid fa-person-walking-with-cane"></i></div>
+              <h3>Geriatrie</h3>
+              <p class="service-subtitle">Erhaltung der Selbstständigkeit im Alter</p>
+            </div>
+            <div class="service-content">
+              <p>Ressourcenorientierte Unterstützung zur Erhaltung von Selbstständigkeit, Sicherheit und Tagesstruktur im höheren Lebensalter.</p>
+              
+              <h4><i class="fa-solid fa-target"></i> Behandlungsziele</h4>
+              <ul class="service-points">
+                <li>Erhaltung der Mobilität</li>
+                <li>Sturzprävention & Sicherheit</li>
+                <li>Kognitive Aktivierung</li>
+                <li>Selbstständigkeit im Alltag</li>
+              </ul>
+
+              <h4><i class="fa-solid fa-clipboard-list"></i> Therapiemethoden</h4>
+              <ul class="service-points">
+                <li>Sturzprävention & Ganganalyse</li>
+                <li>Kognitives Aktivierungstraining</li>
+                <li>Energiemanagement & Alltagsstruktur</li>
+                <li>Wohnumfeld- & Sturzrisikoanalyse</li>
+                <li>Gedächtnistraining & Orientierung</li>
+              </ul>
+
+              <h4><i class="fa-solid fa-user-injured"></i> Indikationen</h4>
+              <div class="indications-grid">
+                <span class="indication-tag">Demenz</span>
+                <span class="indication-tag">Depression</span>
+                <span class="indication-tag">Sturzgefahr</span>
+                <span class="indication-tag">Isolation</span>
+                <span class="indication-tag">Multimorbidität</span>
+                <span class="indication-tag">Alltagsschwäche</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="therapy-process">
+      <div class="container">
+        <h2><i class="fa-solid fa-clipboard-list"></i> Therapieablauf</h2>
+        <p class="section-intro">Von der ersten Kontaktaufnahme bis zum erfolgreichen Therapieabschluss – transparent und strukturiert.</p>
+        
+        <div class="process-steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3><i class="fa-solid fa-phone"></i> Erstkontakt</h3>
+              <p>Telefonische Terminvereinbarung mit Klärung der Verordnung und organisatorischen Details.</p>
+              <ul>
+                <li>Verordnung besprechen</li>
+                <li>Termin koordinieren</li>
+                <li>Anfahrt planen</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3><i class="fa-solid fa-clipboard-check"></i> Erstbefund</h3>
+              <p>Ausführliche Anamnese und Befunderhebung in Ihrem gewohnten Umfeld.</p>
+              <ul>
+                <li>Medizinische Anamnese</li>
+                <li>Funktionelle Tests</li>
+                <li>Alltagsbeobachtung</li>
+                <li>Zieldefinition</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3><i class="fa-solid fa-bullseye"></i> Therapieplanung</h3>
+              <p>Individuelle Behandlungsstrategie basierend auf Ihren Bedürfnissen und Zielen.</p>
+              <ul>
+                <li>Therapieziele festlegen</li>
+                <li>Behandlungsplan erstellen</li>
+                <li>Methoden auswählen</li>
+                <li>Termine strukturieren</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3><i class="fa-solid fa-hands-helping"></i> Behandlung</h3>
+              <p>Regelmäßige Therapieeinheiten mit kontinuierlicher Anpassung an Ihren Fortschritt.</p>
+              <ul>
+                <li>Praktische Übungen</li>
+                <li>Alltagstraining</li>
+                <li>Hilfsmittelschulung</li>
+                <li>Fortschrittskontrolle</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3><i class="fa-solid fa-chart-line"></i> Evaluation</h3>
+              <p>Regelmäßige Überprüfung der Therapieziele und Anpassung der Behandlung.</p>
+              <ul>
+                <li>Fortschritte messen</li>
+                <li>Ziele anpassen</li>
+                <li>Methoden optimieren</li>
+                <li>Dokumentation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3><i class="fa-solid fa-graduation-cap"></i> Abschluss</h3>
+              <p>Therapieabschluss mit Empfehlungen für die selbstständige Weiterführung.</p>
+              <ul>
+                <li>Abschlussbericht</li>
+                <li>Eigenübungen</li>
+                <li>Empfehlungen</li>
+                <li>Nachsorgeplanung</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+
+  
+    
+
+    <!-- CTA Section -->
+   
+  </main>
+
+  <section id="einsatzgebiet" class="section reveal" aria-labelledby="einsatzgebiet-title">
+    <div class="container" data-aos="fade-up">
+      <h2 id="einsatzgebiet-title">Einsatzgebiet: Bolheim & Heidenheim</h2>
+      <p class="section-intro">Ich bin im Raum Bolheim, Heidenheim an der Brenz und Umgebung für Sie unterwegs.</p>
+      
+      <div class="interactive-map-container">
+        <div class="map-header">
+          <div class="map-info">
+            <div class="location-badge">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Unser Einsatzgebiet</span>
+            </div>
+            <div class="coverage-info">
+              <i class="fa-solid fa-circle-dot"></i>
+              <span>25km Umkreis um Bolheim</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="enhanced-map">
+          <div class="map-overlay">
+            <div class="service-area-circle">
+              <div class="center-marker">
+                <i class="fa-solid fa-house-medical"></i>
+                <span class="marker-label">Bolheim<br><small>Hauptstandort</small></span>
+              </div>
+              <div class="area-radius">25km Radius</div>
+            </div>
+            
+            <div class="location-markers">
+              <div class="location-marker heidenheim" style="top: 35%; right: 25%;">
+                <i class="fa-solid fa-map-pin"></i>
+                <span class="marker-tooltip">Heidenheim an der Brenz</span>
+              </div>
+              <div class="location-marker giengen" style="bottom: 35%; left: 30%;">
+                <i class="fa-solid fa-map-pin"></i>
+                <span class="marker-tooltip">Giengen an der Brenz</span>
+              </div>
+              <div class="location-marker herbrechtingen" style="top: 45%; left: 15%;">
+                <i class="fa-solid fa-map-pin"></i>
+                <span class="marker-tooltip">Herbrechtingen</span>
+              </div>
+              <div class="location-marker syrgenstein" style="bottom: 45%; right: 35%;">
+                <i class="fa-solid fa-map-pin"></i>
+                <span class="marker-tooltip">Syrgenstein</span>
+              </div>
+              <div class="location-marker bachhagel" style="top: 20%; right: 20%;">
+                <i class="fa-solid fa-map-pin"></i>
+                <span class="marker-tooltip">Bachhagel</span>
+              </div>
+              <div class="location-marker heldenfingen" style="bottom: 20%; left: 40%;">
+                <i class="fa-solid fa-map-pin"></i>
+                <span class="marker-tooltip">Heldenfingen</span>
+              </div>
+            </div>
+          </div>
+          
+          <iframe 
+            title="Einsatzgebiet Bolheim" 
+            loading="lazy" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d160000.0!2d10.1542!3d48.6773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f8.5!3m3!1m2!1s0x479762a123456789%3A0x123456789abcdef0!2sBolheim%2C%20Deutschland!5e0!3m2!1sde!2sde!4v1234567890123!5m2!1sde!2sde"
+            style="border:0; width:100%; height:100%; pointer-events:none;"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        
+        <div class="map-footer">
+          <div class="coverage-stats">
+            <div class="stat-item">
+              <i class="fa-solid fa-home"></i>
+              <span>Hausbesuche</span>
+              <strong>Täglich</strong>
+            </div>
+            <div class="stat-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Anfahrtszeit</span>
+              <strong>Max. 30 Min</strong>
+            </div>
+            <div class="stat-item">
+              <i class="fa-solid fa-route"></i>
+              <span>Umkreis</span>
+              <strong>25 km</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="section reveal" aria-labelledby="kontakt-title">
+    <div class="container" data-aos="fade-up" style="text-align: center; max-width: 800px;">
+      <h2 id="kontakt-title"><i class="fa-solid fa-comments"></i> Kontakt & Beratung</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 40px;">Rufen Sie an oder schreiben Sie mir – ich bin mit Zeit und Herz für Sie da.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+        <a href="kontakt.html" class="btn primary" style="font-size: 1.1rem; padding: 16px 40px;">
+          <i class="fa-solid fa-envelope"></i> Jetzt Kontakt aufnehmen
+        </a>
+        
+        <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
+          <a href="tel:+4915234551137" style="display: flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-size: 1.05rem;">
+            <i class="fa-solid fa-phone"></i> 01523 4551137
+          </a>
+          <a href="mailto:info@ergomobil-hdh.de" style="display: flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-size: 1.05rem;">
+            <i class="fa-solid fa-envelope"></i> info@ergomobil-hdh.de
+          </a>
+          <a href="https://wa.me/4915234551137" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; color: #25D366; text-decoration: none; font-size: 1.05rem;">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2><i class="fa-solid fa-question-circle"></i> Häufige Fragen</h2>
+      <p class="section-intro">Die wichtigsten Antworten rund um meine ergotherapeutischen Leistungen.</p>
+      
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Wie erhalte ich eine Verordnung für Ergotherapie?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Eine Verordnung für Ergotherapie wird von Ihrem behandelnden Arzt ausgestellt (Hausarzt, Neurologe, Orthopäde, Kinderarzt). Besprechen Sie mit Ihrem Arzt, ob eine ergotherapeutische Behandlung für Sie geeignet ist.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Werden die Kosten von der Krankenkasse übernommen?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Bei Vorliegen einer ärztlichen Verordnung übernehmen die gesetzlichen Krankenkassen die Kosten. Die gesetzliche Zuzahlung beträgt 10% der Behandlungskosten zuzüglich 10€ pro Verordnung.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Wie häufig findet die Behandlung statt?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Die Behandlungsfrequenz richtet sich nach der ärztlichen Verordnung und der individuellen Indikation. Üblicherweise werden 1-3 Behandlungseinheiten pro Woche durchgeführt.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Was sind die Vorteile der mobilen Ergotherapie?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Die Behandlung erfolgt in Ihrer gewohnten Umgebung. Dies ermöglicht alltagsnahes Üben, spart Ihnen Anfahrtswege und erlaubt eine direkte Anpassung Ihres Wohnumfelds an Ihre Bedürfnisse.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Was benötige ich zur ersten Behandlung?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Bitte halten Sie Ihre Verordnung, Versichertenkarte und relevante Arztbriefe bereit. Ein ruhiger Raum und bequeme Kleidung sind für die Behandlung empfehlenswert.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Wie kann ich einen Termin absagen?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Terminabsagen sind bis 24 Stunden vor dem Termin kostenfrei möglich. Bei kurzfristigen Absagen muss ich die Behandlungskosten in Rechnung stellen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-box">
+        <h3>ergomobil-hdh.de</h3>
+        <p>Mobile ergotherapeutische Praxis für Bolheim , Heidenheim & Umgebung.</p>
+        <p>Die für das Titelbild verwendeten Bilder stammen von <a href="https://www.pexels.com/">Pexels</a>.</p>
+      </div>
+      <div class="footer-box">
+        <h4>Kontakt</h4>
+        <ul class="footer-list">
+          <li><i class="fa-solid fa-location-dot"></i> Albstr. 5, 89542 Herbrechtingen</li>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:+4915234551137">01523 4551137</a></li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@ergomobil-hdh.de">info@ergomobil-hdh.de</a></li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h4>Öffnungszeiten</h4>
+        <ul class="footer-list">
+          <li>Mo–Fr: 09:00–17:00 Uhr</li>
+          <li>und nach Vereinbarung</li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h4>Folgen Sie uns</h4>
+        <div class="socials">
+          <a href="#" aria-label="Instagram" class="social social-instagram">
+            <i class="fa-brands fa-instagram"></i>
+            <span class="social-tooltip">Instagram</span>
+          </a>
+          <a href="#" aria-label="Facebook" class="social social-facebook">
+            <i class="fa-brands fa-facebook"></i>
+            <span class="social-tooltip">Facebook</span>
+          </a>
+          <a href="https://wa.me/4915234551137?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20ergotherapeutische%20Behandlung." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social social-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="social-tooltip">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-legal">
+      <small>© <span id="year"></span> ergomobil-hdh.de · Alle Rechte vorbehalten</small>
+      <div class="legal-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+  <style>
+    .floating-sprite,.sprite,.sprite-hand,.sprite-cross,[data-sprite],.sprites-wrapper{display:none!important;visibility:hidden!important}
+  </style>
+  <script>
+    // Modern Slideshow Engine (fixed pause/play)
+    (() => {
+      function initSlideshow(root){
+        const track   = root.querySelector('.ms-track');
+        if(!track) return;
+        const slides  = [...track.children];
+        const prevBtn = root.querySelector('.ms-prev');
+        const nextBtn = root.querySelector('.ms-next');
+        const dots    = [...root.querySelectorAll('.ms-dot')];
+        const toggle  = root.querySelector('.ms-toggle');
+        let idx = slides.findIndex(s => s.classList.contains('active'));
+        if (idx < 0) idx = 0;
+
+        const interval = parseInt(root.dataset.interval || 10000, 10);
+        let timer = null;
+        let playing = true;
+
+        function setActive(i){
+          slides.forEach(s => s.classList.remove('active'));
+          dots.forEach(d => d.classList.remove('active','is-paused'));
+          slides[i].classList.add('active');
+          dots[i]?.classList.add('active');
+          idx = i;
+        }
+
+        function next(){ setActive( (idx + 1) % slides.length ); }
+        function prev(){ setActive( (idx - 1 + slides.length) % slides.length ); }
+
+        function clear(){
+          if(timer){
+            clearInterval(timer);
+            timer = null;
+          }
+        }
+
+        function play(){
+          clear();
+            timer = setInterval(next, interval);
+          playing = true;
+          toggle.dataset.state = 'playing';
+          toggle.setAttribute('aria-label','Pause');
+          toggle.innerHTML = '<i class="fa-solid fa-pause"></i>';
+        }
+
+        function pause(){
+          clear();
+          playing = false;
+          toggle.dataset.state = 'paused';
+          toggle.setAttribute('aria-label','Fortsetzen');
+          toggle.innerHTML = '<i class="fa-solid fa-play"></i>';
+        }
+
+        function togglePlay(){
+          playing ? pause() : play();
+        }
+
+        // Event Binding
+        nextBtn?.addEventListener('click', () => { pause(); next(); });
+        prevBtn?.addEventListener('click', () => { pause(); prev(); });
+        dots.forEach((d,i) => d.addEventListener('click', () => { pause(); setActive(i); }));
+        toggle?.addEventListener('click', togglePlay);
+
+        // Visibility Pause (Tab-Wechsel) für Konsistenz
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            pause();
+          } else if (!playing) {
+            // bleibt pausiert bis User wieder startet
+          }
+        });
+
+        play();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.modern-slideshow').forEach(initSlideshow);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Sensible Daten
+api.txt
+
+# System Files
+.DS_Store
+*.log
+
+# Editor
+.vscode/
+.idea/
+
+# Backup files
+*.bak
+*~

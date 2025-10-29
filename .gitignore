@@ -5,9 +5,12 @@ api.txt
 .DS_Store
 *.log
 
-# Editor
+# Editor directories
 .vscode/
 .idea/
+
+# Logs
+*.log
 
 # Backup files
 *.bak

@@ -276,7 +276,7 @@ img,svg,video{max-width:100%;height:auto;display:block}
 .hero-gallery-item.active{opacity:.6;transform:scale(1.05)}
 .hero::before{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(135deg, rgba(76,161,163,.82), rgba(230,126,115,.24));
+  background:linear-gradient(135deg, rgba(0,0,0,.35), rgba(0,0,0,.15));
   z-index:1;
 }
 .hero-content{position:relative;z-index:2;text-align:center;padding:64px 0;max-width:800px}
@@ -297,6 +297,32 @@ img,svg,video{max-width:100%;height:auto;display:block}
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  background:rgba(255,255,255,0.18) !important;
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.3) !important;
+  color:#fff !important;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.1) inset;
+  transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-actions .btn:hover{
+  background:rgba(255,255,255,0.28) !important;
+  border-color:rgba(255,255,255,0.5) !important;
+  box-shadow:0 12px 32px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.2) inset;
+  transform:translateY(-2px);
+}
+.hero-actions .btn i{
+  color:#fff;
+  opacity:0.9;
+}
+.hero-actions .btn .fa-whatsapp{
+  color:#25D366 !important;
+  opacity:1;
+  filter:drop-shadow(0 2px 4px rgba(37,211,102,0.3));
+}
+.hero-actions .btn .fa-calendar-check{
+  color:#4CAF50 !important;
+  opacity:1;
+  filter:drop-shadow(0 2px 4px rgba(76,175,80,0.3));
 }
 
 /* Hero Locations */

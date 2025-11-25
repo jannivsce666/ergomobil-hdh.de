@@ -271,6 +271,52 @@ img,svg,video{max-width:100%;height:auto;display:block}
   overflow: hidden;
   z-index: 20; /* High z-index to stay above sprites */
 }
+ .hero-gallery {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+ .hero-gallery-item {
+  background-size: cover;
+  background-position: center;
+  opacity: .28;
+  transition: opacity .8s ease, transform 7s ease;
+}
+ .hero-gallery-item.active {
+  opacity: .6;
+  transform: scale(1.05);
+}
+ .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, .35), rgba(0, 0, 0, .15));
+  z-index: 1;
+}
+ .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 64px 0;
+  max-width: 800px;
+}
+ .hero h1 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: clamp(34px, 6vw, 54px);
+  line-height: 1.12;
+  letter-spacing: -.3px;
+  text-shadow: 0 8px 22px rgba(0, 0, 0, .25);
+}
+ .hero p {
+  margin: 0 auto 22px;
+  color: rgba(255, 255, 255, .96);
+  max-width: 62ch;
+  font-size: 1.1rem;
+}
+}
 .hero-gallery{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
 .hero-gallery-item{background-size:cover;background-position:center;opacity:.28;transition:opacity .8s ease, transform 7s ease}
 .hero-gallery-item.active{opacity:.6;transform:scale(1.05)}

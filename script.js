@@ -242,7 +242,7 @@
   if (form && feedback && submitBtn) {
     const btnText = submitBtn.querySelector('.btn-text');
     const btnSpinner = submitBtn.querySelector('.btn-spinner');
-    const isNetlifyForm = form.hasAttribute('data-netlify');
+    const isNetlifyForm = form.hasAttribute('data-netlify') || !!form.querySelector('input[name="form-name"]');
 
     // If Netlify redirected back with success flag, show modal and clean URL.
     try {
@@ -284,7 +284,7 @@
             method: 'POST',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-              'Accept': 'application/json'
+              'Accept': 'text/html'
             },
             body: urlEncoded.toString()
           });

@@ -242,73 +242,9 @@
   if (form && feedback && submitBtn) {
     const btnText = submitBtn.querySelector('.btn-text');
     const btnSpinner = submitBtn.querySelector('.btn-spinner');
-    const isNetlifyForm = form.hasAttribute('data-netlify') || !!form.querySelector('input[name="form-name"]');
-
-    // If Netlify redirected back with success flag, show modal and clean URL.
-    try {
-      const url = new URL(window.location.href);
-      const hasSuccessParam = url.searchParams.get('success') === '1';
-      const hasSuccessHash = (url.hash || '') === '#success';
-      if (hasSuccessParam || hasSuccessHash) {
-        showSuccessModal();
-        url.searchParams.delete('success');
-        url.hash = '';
-        window.history.replaceState({}, document.title, url.pathname + (url.searchParams.toString() ? `?${url.searchParams.toString()}` : '') + url.hash);
-      }
-    } catch {
-      // ignore
-    }
     
     form.addEventListener('submit', async (e) => {
-      // For Netlify Forms, use AJAX submit to avoid page navigation/404 and keep our modal UX.
-      if (isNetlifyForm) {
-        e.preventDefault();
-
-        if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
-          return;
-        }
-
-        const formData = new FormData(form);
-        const urlEncoded = new URLSearchParams();
-        for (const [key, value] of formData.entries()) {
-          if (typeof value === 'string') urlEncoded.set(key, value);
-        }
-
-        submitBtn.disabled = true;
-        if (btnText) btnText.style.display = 'none';
-        if (btnSpinner) btnSpinner.style.display = 'inline';
-        feedback.style.display = 'none';
-
-        try {
-          const response = await fetch('/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-              'Accept': 'text/html'
-            },
-            body: urlEncoded.toString()
-          });
-
-          if (response.ok) {
-            showSuccessModal();
-          } else {
-            const text = await response.text();
-            throw new Error(`HTTP ${response.status}${text ? `: ${text.slice(0, 200)}` : ''}`);
-          }
-        } catch (error) {
-          console.error('Netlify form submission error:', error);
-          feedback.style.display = 'block';
-          feedback.style.color = '#cf6e64';
-          feedback.textContent = 'Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.';
-        } finally {
-          submitBtn.disabled = false;
-          if (btnText) btnText.style.display = 'inline';
-          if (btnSpinner) btnSpinner.style.display = 'none';
-        }
-        return;
-      }
-
-      e.preventDefault(); // Prevent default form submission
+      e.preventDefault();
 
       // Use native HTML validation UI for required fields
       if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
@@ -329,68 +265,32 @@
         return;
       }
       
-      // Keep payload minimal; server will set Reply-To based on the provided email
-      
-      // Zeige Ladeanzeige
-      submitBtn.disabled = true;
-      if (btnText) btnText.style.display = 'none';
-      if (btnSpinner) btnSpinner.style.display = 'inline';
-      feedback.style.display = 'none';
-      
-      // Submit form via fetch
-      try {
-        const endpoint = form.getAttribute('action') || '/api/contact';
-        const urlEncoded = new URLSearchParams();
-        for (const [key, value] of formData.entries()) {
-          if (typeof value === 'string') urlEncoded.set(key, value);
-        }
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-          },
-          body: urlEncoded.toString()
-        });
+      const phone = formData.get('phone')?.toString().trim();
+      const anliegen = formData.get('anliegen')?.toString().trim();
+      const prescription = formData.get('prescription')?.toString().trim();
+      const subject = (formData.get('subject')?.toString().trim() || 'Neue Ergotherapie Anfrage');
 
-        const responseText = await response.text();
-        let result;
-        try {
-          result = JSON.parse(responseText);
-        } catch {
-          result = null;
-        }
+      const lines = [
+        'Neue Kontaktanfrage (Website)',
+        '',
+        `Name: ${name}`,
+        `E-Mail: ${email}`,
+        phone ? `Telefon: ${phone}` : null,
+        anliegen ? `Worum geht es: ${anliegen}` : null,
+        prescription ? `Rezept: ${prescription}` : null,
+        '',
+        'Nachricht:',
+        message,
+      ].filter(Boolean);
 
-        if (response.ok && result && result.success) {
-          // Zeige Success Modal
-          showSuccessModal();
-        } else {
-          const details = [];
-          if (result?.message) details.push(result.message);
-          if (Array.isArray(result?.errors) && result.errors.length) {
-            details.push(result.errors.join(' | '));
-          }
-          if (!result && responseText) {
-            details.push(responseText.slice(0, 200));
-          }
-          const statusInfo = `HTTP ${response.status}`;
-          throw new Error(`${statusInfo}${details.length ? `: ${details.join(' — ')}` : ''}`);
-        }
-      } catch (error) {
-        console.error('Form submission error:', error);
-        feedback.style.display = 'block';
-        feedback.style.color = '#cf6e64';
-        const rawMessage = (error && error.message) ? String(error.message) : '';
-        const isFailedToFetch = /failed to fetch/i.test(rawMessage);
-        feedback.textContent = isFailedToFetch
-          ? 'Senden fehlgeschlagen (Verbindung/CORS). Hinweis: Wenn Sie die Seite direkt als Datei öffnen, funktioniert das Senden oft nicht. Bitte über eine Website/localhost aufrufen und erneut senden.'
-          : (rawMessage ? `Es gab einen Fehler beim Senden: ${rawMessage}` : 'Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.');
-        
-        // Reset button
-        submitBtn.disabled = false;
-        if (btnText) btnText.style.display = 'inline';
-        if (btnSpinner) btnSpinner.style.display = 'none';
-      }
+      // Open user's default email client with prefilled draft.
+      const to = 'infoergomobilhdh@gmail.com';
+      const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      window.location.href = mailto;
+
+      feedback.style.display = 'block';
+      feedback.style.color = '';
+      feedback.textContent = 'Ihr E-Mail-Programm wurde geöffnet. Bitte senden Sie die E-Mail dort ab.';
     });
   }
   

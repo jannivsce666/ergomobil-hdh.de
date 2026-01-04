@@ -84,43 +84,27 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-          <!-- Web3Forms Access Key -->
-          <input type="hidden" name="access_key" value="0c0e3008-4fea-4f53-9003-b9b91e7e58ef">
-          
-          <!-- Web3Forms Configuration -->
-          <input type="hidden" name="from_name" value="Ergotherapie Mobil Website">
-          
-          <!-- Custom Email Subject -->
-          <input type="hidden" name="subject" value="🏥 Neue Ergotherapie Anfrage">
-          
-          <!-- Reply-To will be set dynamically via JavaScript -->
-          <input type="hidden" name="replyto" id="replyto">
-          
-          <!-- Custom Email Template -->
-          <input type="hidden" name="template" value="box">
-          
-          <!-- Botcheck for spam protection -->
-          <input type="checkbox" name="botcheck" style="display: none;">
+        <form class="contact-form" id="contactForm" action="/api/contact" method="POST">
+          <input type="hidden" name="subject" value="Neue Ergotherapie Anfrage">
           
           <div class="form-row">
             <div class="form-field">
               <label for="name">Name *</label>
-              <input id="name" name="👤 Patient/Anfragender" type="text" placeholder="Ihr Name" required />
+              <input id="name" name="name" type="text" placeholder="Ihr Name" required />
             </div>
             <div class="form-field">
               <label for="email">E-Mail *</label>
-              <input id="email" name="📧 E-Mail" type="email" placeholder="Ihre E-Mail" required />
+              <input id="email" name="email" type="email" placeholder="Ihre E-Mail" required />
             </div>
           </div>
           <div class="form-row">
             <div class="form-field">
               <label for="phone">Telefon</label>
-              <input id="phone" name="📞 Telefon" type="tel" placeholder="Ihre Telefonnummer" />
+              <input id="phone" name="phone" type="tel" placeholder="Ihre Telefonnummer" />
             </div>
             <div class="form-field">
               <label for="anliegen">Worum geht es? *</label>
-              <select id="anliegen" name="📋 Art der Anfrage" required>
+              <select id="anliegen" name="anliegen" required>
                 <option value="">Bitte auswählen...</option>
                 <option value="Termin vereinbaren">Termin vereinbaren</option>
                 <option value="Allgemeine Frage">Allgemeine Frage</option>
@@ -129,15 +113,15 @@
           </div>
           <div class="form-field">
             <label for="prescription">Rezept vorhanden? *</label>
-            <select id="prescription" name="💊 Rezept Status" required>
+            <select id="prescription" name="prescription" required>
               <option value="">Bitte auswählen...</option>
-              <option value="✅ Ja, Rezept vorhanden">Ja, Rezept vorhanden</option>
-              <option value="❌ Nein, kein Rezept">Nein, kein Rezept</option>
+              <option value="Ja, Rezept vorhanden">✅ Ja, Rezept vorhanden</option>
+              <option value="Nein, kein Rezept">❌ Nein, kein Rezept</option>
             </select>
           </div>
           <div class="form-field">
             <label for="message">Nachricht *</label>
-            <textarea id="message" name="💬 Nachricht" rows="5" placeholder="Erläutern Sie Ihr Anliegen..." required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Erläutern Sie Ihr Anliegen..." required></textarea>
           </div>
           <div class="form-field form-consent">
             <input id="consent" name="consent" type="checkbox" required />
@@ -201,6 +185,6 @@
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="./script.js"></script>
+  <script src="./script.js?v=2026-01-04" defer onerror="console.error('Failed to load script.js')"></script>
 </body>
 </html>

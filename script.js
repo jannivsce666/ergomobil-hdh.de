@@ -245,12 +245,17 @@
     
     form.addEventListener('submit', async (e) => {
       e.preventDefault(); // Prevent default form submission
+
+      // Use native HTML validation UI for required fields
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
+        return;
+      }
       
       // Validierung
       const formData = new FormData(form);
-      const name = formData.get('👤 Patient/Anfragender')?.toString().trim();
-      const email = formData.get('📧 E-Mail')?.toString().trim();
-      const message = formData.get('💬 Nachricht')?.toString().trim();
+      const name = formData.get('name')?.toString().trim();
+      const email = formData.get('email')?.toString().trim();
+      const message = formData.get('message')?.toString().trim();
       const consent = formData.get('consent');
       
       if (!name || !email || !message || !consent) {
@@ -260,11 +265,7 @@
         return;
       }
       
-      // Set replyto field to user's email for easy reply
-      const replytoField = document.getElementById('replyto');
-      if (replytoField) {
-        replytoField.value = email;
-      }
+      // Keep payload minimal; server will set Reply-To based on the provided email
       
       // Zeige Ladeanzeige
       submitBtn.disabled = true;
@@ -274,24 +275,52 @@
       
       // Submit form via fetch
       try {
-        const response = await fetch('https://api.web3forms.com/submit', {
+        const endpoint = form.getAttribute('action') || '/api/contact';
+        const urlEncoded = new URLSearchParams();
+        for (const [key, value] of formData.entries()) {
+          if (typeof value === 'string') urlEncoded.set(key, value);
+        }
+        const response = await fetch(endpoint, {
           method: 'POST',
-          body: formData
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          },
+          body: urlEncoded.toString()
         });
-        
-        const result = await response.json();
-        
-        if (response.ok && result.success) {
+
+        const responseText = await response.text();
+        let result;
+        try {
+          result = JSON.parse(responseText);
+        } catch {
+          result = null;
+        }
+
+        if (response.ok && result && result.success) {
           // Zeige Success Modal
           showSuccessModal();
         } else {
-          throw new Error(result.message || 'Fehler beim Senden');
+          const details = [];
+          if (result?.message) details.push(result.message);
+          if (Array.isArray(result?.errors) && result.errors.length) {
+            details.push(result.errors.join(' | '));
+          }
+          if (!result && responseText) {
+            details.push(responseText.slice(0, 200));
+          }
+          const statusInfo = `HTTP ${response.status}`;
+          throw new Error(`${statusInfo}${details.length ? `: ${details.join(' — ')}` : ''}`);
         }
       } catch (error) {
         console.error('Form submission error:', error);
         feedback.style.display = 'block';
         feedback.style.color = '#cf6e64';
-        feedback.textContent = 'Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.';
+        const rawMessage = (error && error.message) ? String(error.message) : '';
+        const isFailedToFetch = /failed to fetch/i.test(rawMessage);
+        feedback.textContent = isFailedToFetch
+          ? 'Senden fehlgeschlagen (Verbindung/CORS). Hinweis: Wenn Sie die Seite direkt als Datei öffnen, funktioniert das Senden oft nicht. Bitte über eine Website/localhost aufrufen und erneut senden.'
+          : (rawMessage ? `Es gab einen Fehler beim Senden: ${rawMessage}` : 'Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.');
         
         // Reset button
         submitBtn.disabled = false;
@@ -346,7 +375,7 @@
 
   function buildTemplate() {
     const prescriptionValue = (prescriptionSelect.value || '').toLowerCase();
-    const hasPrescription = prescriptionValue.includes('ja, rezept vorhanden') || prescriptionValue.includes('✅');
+    const hasPrescription = prescriptionValue.includes('ja');
     const concernValue = (concernSelect.value || '').toLowerCase();
     const isAppointment = concernValue.includes('termin');
     const name = (nameInput?.value || '').trim();

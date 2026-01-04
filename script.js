@@ -242,8 +242,35 @@
   if (form && feedback && submitBtn) {
     const btnText = submitBtn.querySelector('.btn-text');
     const btnSpinner = submitBtn.querySelector('.btn-spinner');
+    const isNetlifyForm = form.hasAttribute('data-netlify');
+
+    // If Netlify redirected back with success flag, show modal and clean URL.
+    try {
+      const url = new URL(window.location.href);
+      if (url.searchParams.get('success') === '1') {
+        showSuccessModal();
+        url.searchParams.delete('success');
+        window.history.replaceState({}, document.title, url.pathname + (url.searchParams.toString() ? `?${url.searchParams.toString()}` : '') + url.hash);
+      }
+    } catch {
+      // ignore
+    }
     
     form.addEventListener('submit', async (e) => {
+      // For Netlify Forms, allow native submit (no API keys, no CORS).
+      if (isNetlifyForm) {
+        if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
+          e.preventDefault();
+          return;
+        }
+
+        submitBtn.disabled = true;
+        if (btnText) btnText.style.display = 'none';
+        if (btnSpinner) btnSpinner.style.display = 'inline';
+        feedback.style.display = 'none';
+        return; // allow normal POST
+      }
+
       e.preventDefault(); // Prevent default form submission
 
       // Use native HTML validation UI for required fields

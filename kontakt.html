@@ -84,7 +84,11 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contactForm" action="/api/contact" method="POST">
+        <form class="contact-form" id="contactForm" name="contact" method="POST" action="/kontakt.html?success=1" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none;">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+          </p>
           <input type="hidden" name="subject" value="Neue Ergotherapie Anfrage">
           
           <div class="form-row">

@@ -333,122 +333,56 @@
   });
 })();
 
-// AI Text Improvement Feature for Contact Form
-(function() {
-  const aiImproveBtn = document.getElementById('aiImproveBtn');
+// Contact Form: Prefilled messages based on prescription selection
+(function () {
+  const prescriptionSelect = document.getElementById('prescription');
+  const concernSelect = document.getElementById('anliegen');
+  const nameInput = document.getElementById('name');
   const messageTextarea = document.getElementById('message');
-  const aiStatus = document.getElementById('aiStatus');
-  
-  if (!aiImproveBtn || !messageTextarea) return;
-  
-  aiImproveBtn.addEventListener('click', async () => {
-    const originalText = messageTextarea.value.trim();
-    
-    if (!originalText) {
-      showAiStatus('Bitte geben Sie zuerst eine Nachricht ein.', 'error');
-      return;
+
+  if (!prescriptionSelect || !concernSelect || !messageTextarea) return;
+
+  let lastAutoTemplate = '';
+
+  function buildTemplate() {
+    const prescriptionValue = (prescriptionSelect.value || '').toLowerCase();
+    const hasPrescription = prescriptionValue.includes('ja, rezept vorhanden') || prescriptionValue.includes('✅');
+    const concernValue = (concernSelect.value || '').toLowerCase();
+    const isAppointment = concernValue.includes('termin');
+    const name = (nameInput?.value || '').trim();
+
+    const greeting = 'Guten Tag,';
+    const signature = name ? `Mit freundlichen Grüßen\n${name}` : 'Mit freundlichen Grüßen';
+
+    if (isAppointment) {
+      const prescriptionLine = hasPrescription
+        ? 'Ich habe bereits ein Rezept.'
+        : 'Ich habe noch kein Rezept. Bitte teilen Sie mir mit, wie ich am besten vorgehen soll.';
+
+      return `${greeting}\n\nich benötige einen Termin. ${prescriptionLine}\n\n${signature}`;
     }
-    
-    // Check if prescription is selected
-    const prescriptionSelect = document.getElementById('prescription');
-    const hasPrescription = prescriptionSelect && prescriptionSelect.value.includes('Ja, Rezept vorhanden');
-    
-    // Disable button and show loading
-    aiImproveBtn.disabled = true;
-    aiImproveBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> KI arbeitet...';
-    showAiStatus('Text wird optimiert...', 'loading');
-    
-    try {
-      // Call OpenAI API
-      const API_KEY = 'IHR_OPENAI_API_KEY_HIER';
-      
-      // Check if API key is set
-      if (!API_KEY || API_KEY === 'IHR_OPENAI_API_KEY_HIER') {
-        throw new Error('API Key nicht konfiguriert');
-      }
-      
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`
-        },
-        body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
-          messages: [
-            {
-              role: 'system',
-              content: 'Du bist ein Textkorrektur-Assistent. Der Text ist eine Patientennachricht an eine Ergotherapie-Praxis. WICHTIG: Du bist NICHT der Therapeut, sondern hilfst dem Patienten seine Nachricht zu verbessern!\n\nAufgaben:\n1. Korrigiere Rechtschreibfehler und Grammatik\n2. Formuliere höflich und klar\n3. Behalte die Ich-Perspektive des Patienten (niemals "Sie" für den Patienten verwenden!)\n4. Behalte den Inhalt und die Absicht bei\n5. Mache es kurz und prägnant\n\nAntworte NUR mit dem verbesserten Text, keine Erklärungen!'
-            },
-            {
-              role: 'user',
-              content: `Verbessere diese Patientennachricht:\n\n"${originalText}"\n\n${hasPrescription ? 'WICHTIG: Der Patient hat bereits ein Rezept vom Arzt. Füge am Ende hinzu: "Ich habe bereits ein Rezept vom Arzt."\n\n' : ''}Verbesserter Text:`
-            }
-          ],
-          temperature: 0.5,
-          max_tokens: 250
-        })
-      });
-      
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error('OpenAI API Error:', response.status, errorData);
-        
-        if (response.status === 401) {
-          throw new Error('API Key ungültig oder abgelaufen. Bitte überprüfen Sie Ihren OpenAI API Key.');
-        } else if (response.status === 429) {
-          throw new Error('Rate-Limit erreicht. Bitte warten Sie einen Moment.');
-        } else if (response.status === 403) {
-          throw new Error('Zugriff verweigert. Überprüfen Sie Ihre OpenAI Kontoberechtigung.');
-        } else {
-          throw new Error(`API-Fehler (${response.status}): ${errorData.error?.message || 'Unbekannter Fehler'}`);
-        }
-      }
-      
-      const data = await response.json();
-      const improvedText = data.choices[0].message.content.trim();
-      
-      // Update textarea with improved text
-      messageTextarea.value = improvedText;
-      showAiStatus('✓ Text wurde erfolgreich verbessert!', 'success');
-      
-    } catch (error) {
-      console.error('AI Improvement Error:', error);
-      showAiStatus(`Fehler: ${error.message}`, 'error');
-    } finally {
-      // Re-enable button
-      aiImproveBtn.disabled = false;
-      aiImproveBtn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> Text mit KI verbessern';
-    }
-  });
-  
-  function showAiStatus(message, type) {
-    if (!aiStatus) return;
-    
-    aiStatus.style.display = 'block';
-    aiStatus.textContent = message;
-    
-    switch(type) {
-      case 'error':
-        aiStatus.style.color = '#cf6e64';
-        break;
-      case 'success':
-        aiStatus.style.color = '#2D6A6C';
-        break;
-      case 'loading':
-        aiStatus.style.color = '#667085';
-        break;
-      default:
-        aiStatus.style.color = 'var(--primary)';
-    }
-    
-    // Auto-hide success message after 3 seconds
-    if (type === 'success') {
-      setTimeout(() => {
-        aiStatus.style.display = 'none';
-      }, 3000);
+
+    // Allgemeine Frage
+    const prescriptionNote = hasPrescription ? 'Rezept vorhanden.' : 'Rezept nicht vorhanden.';
+    return `${greeting}\n\nich habe eine allgemeine Frage und bitte um Rückmeldung.\n\n${prescriptionNote}\n\n${signature}`;
+  }
+
+  function applyTemplateFromSelection() {
+    const nextTemplate = buildTemplate();
+
+    const current = messageTextarea.value.trim();
+    const canAutofill = current.length === 0 || current === lastAutoTemplate;
+
+    if (canAutofill) {
+      messageTextarea.value = nextTemplate;
+      lastAutoTemplate = nextTemplate;
     }
   }
+
+  prescriptionSelect.addEventListener('change', applyTemplateFromSelection);
+  concernSelect.addEventListener('change', applyTemplateFromSelection);
+  if (nameInput) nameInput.addEventListener('input', applyTemplateFromSelection);
+  applyTemplateFromSelection();
 })();
 
 // FAQ Toggle Function for Index Page

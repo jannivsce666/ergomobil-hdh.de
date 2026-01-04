@@ -84,8 +84,11 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contactForm" action="#" method="POST" novalidate>
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="4e612959-e7a6-4ef1-a5d7-25b7b96d445a">
+          <input type="hidden" name="from_name" value="Ergotherapie Mobil Website">
           <input type="hidden" name="subject" value="Neue Ergotherapie Anfrage">
+          <input type="hidden" name="replyto" id="replyto">
           
           <div class="form-row">
             <div class="form-field">
@@ -185,6 +188,6 @@
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="./script.js?v=2026-01-04-3" defer onerror="console.error('Failed to load script.js')"></script>
+  <script src="./script.js?v=2026-01-04-4" defer onerror="console.error('Failed to load script.js')"></script>
 </body>
 </html>

@@ -283,14 +283,57 @@
         message,
       ].filter(Boolean);
 
-      // Open user's default email client with prefilled draft.
-      const to = 'infoergomobilhdh@gmail.com';
-      const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
-      window.location.href = mailto;
+      // Web3Forms expects replyto to be present
+      formData.set('replyto', email);
 
-      feedback.style.display = 'block';
-      feedback.style.color = '';
-      feedback.textContent = 'Ihr E-Mail-Programm wurde geöffnet. Bitte senden Sie die E-Mail dort ab.';
+      // Zeige Ladeanzeige
+      submitBtn.disabled = true;
+      if (btnText) btnText.style.display = 'none';
+      if (btnSpinner) btnSpinner.style.display = 'inline';
+      feedback.style.display = 'none';
+
+      try {
+        const endpoint = form.getAttribute('action') || 'https://api.web3forms.com/submit';
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        });
+
+        const responseText = await response.text();
+        let result;
+        try {
+          result = JSON.parse(responseText);
+        } catch {
+          result = null;
+        }
+
+        if (response.ok && result && result.success) {
+          showSuccessModal();
+          return;
+        }
+
+        const details = [];
+        if (result?.message) details.push(result.message);
+        if (Array.isArray(result?.errors) && result.errors.length) details.push(result.errors.join(' | '));
+        if (!result && responseText) details.push(responseText.slice(0, 200));
+        throw new Error(`HTTP ${response.status}${details.length ? `: ${details.join(' — ')}` : ''}`);
+      } catch (error) {
+        console.error('Form submission error:', error);
+        feedback.style.display = 'block';
+        feedback.style.color = '#cf6e64';
+        const rawMessage = (error && error.message) ? String(error.message) : '';
+        const isFailedToFetch = /failed to fetch/i.test(rawMessage);
+        feedback.textContent = isFailedToFetch
+          ? 'Senden fehlgeschlagen (Verbindung/CORS). Bitte Seite neu laden und erneut versuchen.'
+          : (rawMessage ? `Es gab einen Fehler beim Senden: ${rawMessage}` : 'Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.');
+      } finally {
+        submitBtn.disabled = false;
+        if (btnText) btnText.style.display = 'inline';
+        if (btnSpinner) btnSpinner.style.display = 'none';
+      }
     });
   }
   

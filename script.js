@@ -247,9 +247,12 @@
     // If Netlify redirected back with success flag, show modal and clean URL.
     try {
       const url = new URL(window.location.href);
-      if (url.searchParams.get('success') === '1') {
+      const hasSuccessParam = url.searchParams.get('success') === '1';
+      const hasSuccessHash = (url.hash || '') === '#success';
+      if (hasSuccessParam || hasSuccessHash) {
         showSuccessModal();
         url.searchParams.delete('success');
+        url.hash = '';
         window.history.replaceState({}, document.title, url.pathname + (url.searchParams.toString() ? `?${url.searchParams.toString()}` : '') + url.hash);
       }
     } catch {
@@ -257,18 +260,52 @@
     }
     
     form.addEventListener('submit', async (e) => {
-      // For Netlify Forms, allow native submit (no API keys, no CORS).
+      // For Netlify Forms, use AJAX submit to avoid page navigation/404 and keep our modal UX.
       if (isNetlifyForm) {
+        e.preventDefault();
+
         if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
-          e.preventDefault();
           return;
+        }
+
+        const formData = new FormData(form);
+        const urlEncoded = new URLSearchParams();
+        for (const [key, value] of formData.entries()) {
+          if (typeof value === 'string') urlEncoded.set(key, value);
         }
 
         submitBtn.disabled = true;
         if (btnText) btnText.style.display = 'none';
         if (btnSpinner) btnSpinner.style.display = 'inline';
         feedback.style.display = 'none';
-        return; // allow normal POST
+
+        try {
+          const response = await fetch('/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+              'Accept': 'application/json'
+            },
+            body: urlEncoded.toString()
+          });
+
+          if (response.ok) {
+            showSuccessModal();
+          } else {
+            const text = await response.text();
+            throw new Error(`HTTP ${response.status}${text ? `: ${text.slice(0, 200)}` : ''}`);
+          }
+        } catch (error) {
+          console.error('Netlify form submission error:', error);
+          feedback.style.display = 'block';
+          feedback.style.color = '#cf6e64';
+          feedback.textContent = 'Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.';
+        } finally {
+          submitBtn.disabled = false;
+          if (btnText) btnText.style.display = 'inline';
+          if (btnSpinner) btnSpinner.style.display = 'none';
+        }
+        return;
       }
 
       e.preventDefault(); // Prevent default form submission

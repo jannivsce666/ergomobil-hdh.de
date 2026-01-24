@@ -620,6 +620,13 @@ button[disabled]{opacity:0.7;cursor:not-allowed}
 
 @media(min-width:740px){.contact-grid{grid-template-columns:1fr 1.2fr;gap:22px}.form-row{grid-template-columns:1fr 1fr}}
 
+/* Booking (iframe embed) */
+.booking-card{border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-md)}
+.booking-iframe{display:block;width:100%;height:clamp(720px, 80vh, 980px);border:0;background:#fff}
+@media(max-width:600px){
+  .booking-iframe{height:920px}
+}
+
 /* Footer */
 .site-footer{background:var(--primary-700);color:#E7F2F2;margin-top:36px}
 .footer-grid{display:grid;grid-template-columns:1fr;gap:16px;padding:28px 0 10px}

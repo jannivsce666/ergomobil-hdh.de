@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="description" content="Karriere bei Ergotherapie Mobil: Werden Sie Teil unseres Teams für mobile Ergotherapie im Raum Heidenheim & Herbrechtingen.">
+  <title>Karriere | Ergotherapie Mobil</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .karriere-page .page-hero {
+      background: linear-gradient(135deg, rgba(76, 161, 163, 0.12), rgba(45, 106, 108, 0.18));
+      padding: 140px 0 70px;
+      border-bottom: 1px solid var(--border);
+    }
+    .karriere-page .page-hero h1 {
+      margin: 0 0 12px;
+      color: var(--primary-700);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+    .karriere-page .hero-subtitle {
+      margin: 0;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .karriere-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .karriere-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .karriere-card h3 {
+      margin: 0 0 8px;
+      color: var(--primary-700);
+      font-size: 1.05rem;
+    }
+    .karriere-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .job-box {
+      margin-top: 20px;
+      padding: 22px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff, #f7f4ef);
+    }
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+    .job-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-700);
+      background: rgba(76, 161, 163, 0.12);
+    }
+    .job-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 14px;
+    }
+    .job-columns h4 {
+      margin: 0 0 8px;
+      color: var(--primary-700);
+    }
+    .job-columns ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .job-columns li {
+      margin-bottom: 6px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .salary-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(76, 161, 163, 0.28);
+      background: rgba(76, 161, 163, 0.09);
+    }
+    .salary-box h4 {
+      margin: 0 0 8px;
+      color: var(--primary-700);
+    }
+    .salary-box p {
+      margin: 0 0 8px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .salary-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .salary-box li {
+      margin-bottom: 6px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .bewerbung-box {
+      margin-top: 28px;
+      background: linear-gradient(140deg, var(--primary-700), var(--primary));
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow-md);
+    }
+    .bewerbung-box h3 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+    }
+    .bewerbung-box p {
+      margin: 0 0 16px;
+      opacity: 0.95;
+      max-width: 760px;
+    }
+    .bewerbung-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .bewerbung-box .btn.ghost {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+    .bewerbung-box .btn.ghost:hover {
+      background: #fff;
+      color: var(--primary-700);
+      border-color: #fff;
+    }
+    @media (max-width: 640px) {
+      .karriere-page .page-hero {
+        padding: 128px 0 54px;
+      }
+      .bewerbung-box {
+        padding: 22px 18px;
+      }
+      .bewerbung-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Ergotherapie Mobil Startseite">
+        <img src="./images/logo.png" alt="Ergotherapie Mobil Logo">
+        <span>Ergotherapie Mobil</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Navigation umschalten" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" role="navigation">
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="index.html#main">Über mich</a></li>
+          <li><a href="karriere.html" class="active">Karriere</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="karriere-page">
+    <section class="page-hero">
+      <div class="container">
+        <h1><i class="fa-solid fa-briefcase-medical"></i> Karriere bei Ergotherapie Mobil</h1>
+        <p class="hero-subtitle">Sie möchten Menschen in ihrem Alltag stärken und in einem wertschätzenden, mobilen Setting arbeiten? Wir suchen ab sofort für Minijob, Teilzeit und Vollzeit.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2><i class="fa-solid fa-heart-circle-check"></i> Das erwartet Sie bei uns</h2>
+        <p class="section-intro">Moderne Ergotherapie lebt von Fachlichkeit, Empathie und Teamgeist. Wir bieten ein Arbeitsumfeld, in dem Sie Ihre Stärken gezielt einbringen und entwickeln können.</p>
+
+        <div class="karriere-grid">
+          <article class="karriere-card">
+            <h3><i class="fa-solid fa-clock"></i> Flexible Arbeitszeiten</h3>
+            <p>Planbare Touren, familienfreundliche Terminstruktur und Raum für individuelle Absprachen.</p>
+          </article>
+          <article class="karriere-card">
+            <h3><i class="fa-solid fa-graduation-cap"></i> Fortbildung & Entwicklung</h3>
+            <p>Unterstützung bei relevanten Weiterbildungen und Spezialisierungen in Ihrem Fachbereich.</p>
+          </article>
+          <article class="karriere-card">
+            <h3><i class="fa-solid fa-users"></i> Wertschätzendes Miteinander</h3>
+            <p>Kurze Entscheidungswege, offene Kommunikation und echte Zusammenarbeit auf Augenhöhe.</p>
+          </article>
+        </div>
+
+        <div class="job-box">
+          <h3><i class="fa-solid fa-stethoscope"></i> Aktuelle Position: Ergotherapeut/in (m/w/d)</h3>
+          <div class="job-meta">
+            <span class="job-tag"><i class="fa-solid fa-location-dot"></i> Raum Heidenheim</span>
+            <span class="job-tag"><i class="fa-solid fa-house"></i> Mobile Therapie / Hausbesuche</span>
+            <span class="job-tag"><i class="fa-solid fa-briefcase"></i> Minijob</span>
+            <span class="job-tag"><i class="fa-solid fa-business-time"></i> Teilzeit</span>
+            <span class="job-tag"><i class="fa-solid fa-user-doctor"></i> Vollzeit</span>
+          </div>
+
+          <div class="job-columns">
+            <div>
+              <h4>Ihre Aufgaben</h4>
+              <ul>
+                <li>Durchführung ergotherapeutischer Behandlungen in häuslichem Umfeld</li>
+                <li>Individuelle Zielplanung und Verlaufskontrolle</li>
+                <li>Beratung von Angehörigen und interdisziplinäre Abstimmung</li>
+                <li>Dokumentation gemäß fachlichen Standards</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Ihr Profil</h4>
+              <ul>
+                <li>Abgeschlossene Ausbildung oder Studium in Ergotherapie</li>
+                <li>Freude an selbstständigem, patientenorientiertem Arbeiten</li>
+                <li>Führerschein Klasse B</li>
+                <li>Zuverlässigkeit, Empathie und Teamgeist</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="salary-box">
+            <h4><i class="fa-solid fa-sack-dollar"></i> Attraktive Vergütung & Benefits</h4>
+            <p>Wir bieten Ihnen ein attraktives, leistungsgerechtes Gehalt mit transparenter Entwicklung je nach Qualifikation und Berufserfahrung.</p>
+            <ul>
+              <li>Überdurchschnittliche Vergütung für Minijob, Teilzeit und Vollzeit</li>
+              <li>Bezahlte Fahrzeit zwischen den Hausbesuchen</li>
+              <li>Zuschüsse zu Fortbildungen und fachlicher Spezialisierung</li>
+              <li>Wertschätzendes Team, planbare Touren und flexible Arbeitszeiten</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bewerbung-box">
+          <h3>Initiativbewerbung willkommen</h3>
+          <p>Wir suchen aktiv für Minijob, Teilzeit und Vollzeit. Senden Sie uns gerne Ihre Bewerbung mit Lebenslauf, gewünschtem Stundenumfang und möglichem Starttermin.</p>
+          <div class="bewerbung-actions">
+            <a class="btn primary" href="mailto:infoergomobilhdh@gmail.com?subject=Bewerbung%20Ergotherapie%20Mobil">
+              <i class="fa-solid fa-paper-plane"></i> Jetzt per E-Mail bewerben
+            </a>
+            <a class="btn ghost" href="kontakt.html">
+              <i class="fa-solid fa-envelope"></i> Zum Kontaktformular
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-box">
+        <h4>Ergotherapie Mobil</h4>
+        <p>Mobile ergotherapeutische Praxis für Herbrechtingen & Umgebung.</p>
+      </div>
+      <div class="footer-box">
+        <h4>Kontakt</h4>
+        <ul class="footer-list">
+          <li><i class="fa-solid fa-location-dot"></i> Am Rathaus 9, 89520 Schnaitheim</li>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:+4915129812721">01512 9812721</a></li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:infoergomobilhdh@gmail.com">infoergomobilhdh@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h4>Öffnungszeiten</h4>
+        <ul class="footer-list">
+          <li>Di, Mi, Fr: 08:00–18:00 Uhr</li>
+          <li>Mo &amp; Do: Hausbesuche</li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h4>Folgen Sie uns</h4>
+        <div class="socials">
+          <a href="#" aria-label="Instagram" class="social social-instagram">
+            <i class="fa-brands fa-instagram"></i>
+            <span class="social-tooltip">Instagram</span>
+          </a>
+          <a href="#" aria-label="Facebook" class="social social-facebook">
+            <i class="fa-brands fa-facebook"></i>
+            <span class="social-tooltip">Facebook</span>
+          </a>
+          <a href="#" aria-label="WhatsApp" class="social social-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="social-tooltip">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-legal">
+      <small>© <span id="year"></span> Ergotherapie Mobil · Alle Rechte vorbehalten</small>
+      <div class="legal-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+  <!-- Sprite-Killer -->
+  <style>
+    .floating-sprite,.sprite,.sprite-hand,.sprite-cross,[data-sprite],.sprites-wrapper{display:none!important;visibility:hidden!important;pointer-events:none!important}
+  </style>
+</body>
+</html>

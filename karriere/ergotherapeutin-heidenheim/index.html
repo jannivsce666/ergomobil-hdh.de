@@ -3,6 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+    gtag('js', new Date());
+  </script>
   <title>Ergotherapeut/in (m/w/d) in Heidenheim | Minijob, Teilzeit oder Vollzeit</title>
   <meta name="description" content="Ergomobil-hdh / Mareike Nebel sucht Ergotherapeut/in (m/w/d) in Heidenheim an der Brenz / Schnaitheim. Minijob, Teilzeit oder Vollzeit nach Absprache. Jetzt bewerben!" />
   <meta name="robots" content="index, follow" />
@@ -342,12 +354,14 @@
         <div class="legal-links">
           <a href="/impressum.html">Impressum</a>
           <a href="/datenschutz.html">Datenschutz</a>
+          <a href="#" onclick="openCookieSettings(); return false;">Cookie-Einstellungen</a>
           <a href="/karriere/ergotherapeutin-heidenheim">Karriere</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="/consent.js" defer></script>
   <script src="/script.js" defer></script>
 </body>
 </html>

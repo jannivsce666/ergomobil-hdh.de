@@ -3,6 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+    gtag('js', new Date());
+  </script>
   <meta name="description" content="Kontakt Ergotherapie Mobil ➤ Termin vereinbaren in Heidenheim an der Brenz & Umkreis ✓ Hausbesuche ✓ 01512 9812721 ✓ Online-Kontaktformular">
   <meta name="keywords" content="Ergotherapie Termin Heidenheim, Ergotherapie Termin Heidenheim an der Brenz, Ergotherapie Termin Schnaitheim, Ergotherapie Termin Bolheim, Ergotherapie Termin Herbrechtingen, Ergotherapie Termin Giengen an der Brenz, Ergotherapie Termin Sontheim an der Brenz, Ergotherapie Termin Niederstotzingen, Ergotherapeut kontaktieren, Ergotherapie Hausbesuch anfragen">
   <meta name="robots" content="index, follow">
@@ -203,6 +215,7 @@
         <ul class="footer-list">
           <li><a href="impressum.html">Impressum</a></li>
           <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a href="#" onclick="openCookieSettings(); return false;">Cookie-Einstellungen</a></li>
           <li><a href="/karriere/ergotherapeutin-heidenheim">Karriere</a></li>
         </ul>
       </div>
@@ -216,6 +229,7 @@
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="/consent.js" defer></script>
   <script src="./script.js?v=2026-01-04-4" defer onerror="console.error('Failed to load script.js')"></script>
 </body>
 </html>

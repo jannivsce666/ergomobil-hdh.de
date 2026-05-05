@@ -3,6 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+    gtag('js', new Date());
+  </script>
   <meta name="description" content="Datenschutzerklärung der Ergotherapie Mobil - Mareike Nebel. Informationen zum Schutz Ihrer persönlichen Daten.">
   <title>Datenschutz | Ergotherapie Mobil</title>
 
@@ -153,13 +165,14 @@
 
             <section id="cookies">
               <h2>8. Cookies und Tracking</h2>
-              <p>Unsere Website verwendet nur technisch notwendige Cookies, die für den Betrieb der Website erforderlich sind. Diese Cookies:</p>
+              <p>Unsere Website verwendet technisch notwendige Cookies und - nur nach Ihrer ausdrücklichen Einwilligung - ein Analyse-Tool (Google Analytics 4).</p>
               <ul>
                 <li>Ermöglichen die Navigation auf der Website</li>
                 <li>Speichern Ihre Cookie-Einstellungen</li>
                 <li>Gewährleisten die Sicherheit der Website</li>
+                <li>Ermöglichen bei Einwilligung die statistische Auswertung der Website-Nutzung</li>
               </ul>
-              <p>Wir verwenden keine Tracking-Cookies oder Analyse-Tools von Drittanbietern.</p>
+              <p>Google Analytics wird erst nach Ihrer Zustimmung aktiviert. Sie können Ihre Einwilligung jederzeit über "Cookie-Einstellungen" widerrufen oder anpassen.</p>
             </section>
 
             <section id="rechte">
@@ -266,11 +279,13 @@
       <div class="legal-links">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html" class="active">Datenschutz</a>
+        <a href="#" onclick="openCookieSettings(); return false;">Cookie-Einstellungen</a>
         <a href="/karriere/ergotherapeutin-heidenheim">Karriere</a>
       </div>
     </div>
   </footer>
 
+  <script src="/consent.js" defer></script>
   <script src="./script.js" defer></script>
   <style>
     .floating-sprite,.sprite,.sprite-hand,.sprite-cross,[data-sprite],.sprites-wrapper{display:none!important;visibility:hidden!important;pointer-events:none!important}
